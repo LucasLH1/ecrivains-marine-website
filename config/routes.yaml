@@ -1,0 +1,11 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+app_ecrivains:
+    path: /ecrivains
+    controller: App\Controller\EcrivainsController::index

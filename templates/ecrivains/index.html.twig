@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EcrivainsController!{% endblock %}
+
+{% block body %}
+    {% for ecrivain in ecrivains %}
+        <p>{{ ecrivain.name }}</p>
+    {% endfor %}
+{% endblock %}
