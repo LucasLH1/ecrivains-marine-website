@@ -2,19 +2,110 @@
 
 {% block title %}Hello DefaultController!{% endblock %}
 
+{% block navbar %}{% endblock %}
+
 {% block body %}
+
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    #ancre_logo {
+        width: 200px;
+        margin-top: -120px;
+    }
+
+    @media (max-width: 1440px) {
+        #ancre_logo {
+            width: 150px;
+            margin-top: -10px;
+
+        }
+    }
+    @media (max-width: 992px) {
+        #ancre_logo {
+            width: 150px;
+            margin-top: -10px;
+
+        }
+    }
+    @media (max-width: 768px) {
+        #ancre_logo {
+            width: 120px;
+            margin-top: -90px;
+
+        }
+    }
+    @media (max-width: 576px) {
+        #ancre_logo {
+            width: 100px;
+            margin-top: -100px;
+
+        }
+    }
+
+
 </style>
+    <div class="container-fluid m-0 p-0 overflow-hidden text-center" style="background-color: #F5F5FE;">
+        <div class="row d-flex">
+            <div class="col-md-12">
+{#                <picture>#}
+{#                    <source media="(min-width: 1440px)" srcset="{{ asset('assets/template/homepage-banner/homepage_large_desktop.jpg') }}">#}
+{#                    <source media="(min-width: 992px)" srcset="{{ asset('assets/template/homepage-banner/homepage_desktop.jpg') }}">#}
+{#                    <source media="(min-width: 768px)" srcset="{{ asset('assets/template/homepage-banner/homepage_tablet.jpg') }}">#}
+{#                    <source media="(min-width: 576px)" srcset="{{ asset('assets/template/homepage-banner/homepage_mobile.jpg') }}">#}
+{#                    <source media="(max-width: 575px)" srcset="{{ asset('assets/template/homepage-banner/homepage_mobile.jpg') }}">#}
+{#                    <img src="{{ asset('assets/template/homepage-banner/2021_MTLN_024_A_009_058.jpg') }}" class="img-fluid" alt="" loading="lazy">#}
+{#                </picture>#}
+                <picture>
+                    <source media="(min-width: 1440px)" srcset="{{ asset('assets/template/homepage-banner/tableau_emmelene-landon.jpg') }}">
+                    <source media="(min-width: 992px)" srcset="{{ asset('assets/template/homepage-banner/homepage_desktop.jpg') }}">
+                    <source media="(min-width: 768px)" srcset="{{ asset('assets/template/homepage-banner/homepage_tablet.jpg') }}">
+                    <source media="(min-width: 576px)" srcset="{{ asset('assets/template/homepage-banner/homepage_mobile.jpg') }}">
+                    <source media="(max-width: 575px)" srcset="{{ asset('assets/template/homepage-banner/homepage_mobile.jpg') }}">
+                    <img src="{{ asset('assets/template/homepage-banner/tableau_emmelene-landon.jpg') }}" class="img-fluid" alt="Crédit: Emmelene Landon" loading="lazy">
+                </picture>
+                <img src="https://lucaslahaye.fr/marine/ancre_logo._460_square.png" id="ancre_logo" class="rounded-circle shadow-lg" alt="logo">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/lucas/PhpstormProjects/ecrivains-marine-website/src/Controller/DefaultController.php'|file_link(0) }}">src/Controller/DefaultController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/lucas/PhpstormProjects/ecrivains-marine-website/templates/default/index.html.twig'|file_link(0) }}">templates/default/index.html.twig</a></code></li>
-    </ul>
-</div>
+            </div>
+        </div>
+
+        <section class="h-100 gradient-form" style="background-color: #F5F5FE;">
+            <div class="container  h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-lg-4 d-flex align-items-center gradient-custom-2">
+                            <div class="text-center text-dark px-3 py-4 p-md-5 mx-md-4">
+{#                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-grid-1x2-fill m-2 " style="color: #5588A9;" viewBox="0 0 16 16">#}
+{#                                    <path d="M0 1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm9 0a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1V1zm0 9a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-5z"/>#}
+{#                                </svg>#}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-book mb-2" style="color: #5588A9;" viewBox="0 0 16 16">
+                                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                                </svg>
+                                <h4 class="mb-4 mt-2">L'association</h4>
+                                <p class="small mb-0">Association de loi 1901, présidée par Patrice Franceschi et liée par convention à la Marine nationale.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 d-flex align-items-center gradient-custom-2">
+                            <div class="text-center text-dark px-3 py-4 p-md-5 mx-md-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-pencil mb-2" style="color: #5588A9;" viewBox="0 0 16 16">
+                                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                </svg>
+                                <h4 class="mb-4 mt-2">Les Écrivains</h4>
+                                <p class="small mb-0">Retrouvez ici la liste des membres actuels ainsi que la section internationale du groupe.</p>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 d-flex align-items-center gradient-custom-2">
+                            <div class="text-center text-dark px-3 py-4 p-md-5 mx-md-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-calendar2-week mb-2" style="color: #5588A9;" viewBox="0 0 16 16">
+                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4zM11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                                </svg>
+                                <h4 class="mb-4 mt-2">Le calendrier</h4>
+                                <p class="small mb-0">Conférences, séances de dédicaces, sorties litéraires : toute l'actualité des Écrivains de marine. </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+        </section>
+    </div>
 {% endblock %}

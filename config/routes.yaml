@@ -9,3 +9,31 @@ index:
 app_ecrivains:
     path: /ecrivains
     controller: App\Controller\EcrivainsController::index
+
+app_detailecrivain:
+    path: /ecrivains/{id}
+    controller: App\Controller\EcrivainsController::detailEcrivain
+
+app_addecrivain:
+    path: /addecrivains
+    controller: App\Controller\EcrivainsController::addEcrivain
+
+app_manageecrivainslist:
+    path: /mel
+    controller: App\Controller\EcrivainsController::manageEcrivainsList
+
+app_removeecrivain:
+    path: /removeecrivain/{id}
+    controller: App\Controller\EcrivainsController::removeEcrivain
+
+app_manage:
+    path: /manage
+    controller: App\Controller\ManageController::manage
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+app_logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout

@@ -1,9 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EcrivainsController!{% endblock %}
+{% block title %}Les Écrivains{% endblock %}
 
 {% block body %}
-    {% for ecrivain in ecrivains %}
-        <p>{{ ecrivain.name }}</p>
-    {% endfor %}
+    <div class="container mt-5">
+        <div class="row">
+            {% for ecrivain in ecrivains %}
+            <div class="col-xl-6 col-lg-6 mb-4">
+                <a href="{{ path('app_detailecrivain', {'id': ecrivain.id }) }}" style="text-decoration: none; color: black">
+                    <div class="card card">
+                        <div class="card-body">
+                            <div class="row g-0">
+                                    <div class="col-md-3 mt-1 mb-1">
+                                        <div class="d-flex align-items-center">
+                                            <img
+                                                    src="{{ asset('uploads/profilepictures_directory/' ~ ecrivain.profilePicture) }}"
+                                                    alt=""
+                                                    style="width: 120px; height: 110px"
+                                                    class="rounded-circle"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ ecrivain.firstname }} {{ ecrivain.name }}</h5>
+                                            <p class="card-text"> {{ ecrivain.awards }}
+                                            </p>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
 {% endblock %}

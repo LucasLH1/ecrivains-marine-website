@@ -21,7 +21,7 @@ class EcrivainsRepository extends ServiceEntityRepository
         parent::__construct($registry, Ecrivains::class);
     }
 
-    public function save(Ecrivains $entity, bool $flush = false): void
+    public function add(Ecrivains $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 

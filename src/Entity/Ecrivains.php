@@ -2,64 +2,31 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
+use App\Repository\EcrivainsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Ecrivains
- *
- * @ORM\Table(name="ecrivains")
- * @ORM\Entity
- * @ORM\Entity(repositoryClass="App\Repository\EcrivainsRepository")
-
- */
-
+#[ORM\Entity(repositoryClass: EcrivainsRepository::class)]
 class Ecrivains
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="ecrivains_id_seq", allocationSize=1, initialValue=1)
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=50, nullable=false)
-     */
+    #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="firstname", type="string", length=50, nullable=false)
-     */
+    #[ORM\Column(type: 'string', length: 255)]
     private $firstname;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text", nullable=false)
-     */
+    #[ORM\Column(type: 'text')]
     private $description;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="awards", type="text", nullable=false)
-     */
+    #[ORM\Column(type: 'string', length: 255)]
     private $awards;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="enabled", type="boolean", nullable=false)
-     */
-    private $enabled;
+    #[ORM\Column(type: 'string', length: 255)]
+    private $profilePicture;
 
     public function getId(): ?int
     {
@@ -114,17 +81,15 @@ class Ecrivains
         return $this;
     }
 
-    public function isEnabled(): ?bool
+    public function getProfilePicture(): ?string
     {
-        return $this->enabled;
+        return $this->profilePicture;
     }
 
-    public function setEnabled(bool $enabled): self
+    public function setProfilePicture(string $profilePicture): self
     {
-        $this->enabled = $enabled;
+        $this->profilePicture = $profilePicture;
 
         return $this;
     }
-
-
 }
