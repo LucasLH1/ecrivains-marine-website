@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DefaultController!{% endblock %}
+{% block title %}Les Écrivains de marine{% endblock %}
 
 {% block navbar %}{% endblock %}
 
@@ -46,23 +46,16 @@
     <div class="container-fluid m-0 p-0 overflow-hidden text-center" style="background-color: #F5F5FE;">
         <div class="row d-flex">
             <div class="col-md-12">
-{#                <picture>#}
-{#                    <source media="(min-width: 1440px)" srcset="{{ asset('assets/template/homepage-banner/homepage_large_desktop.jpg') }}">#}
-{#                    <source media="(min-width: 992px)" srcset="{{ asset('assets/template/homepage-banner/homepage_desktop.jpg') }}">#}
-{#                    <source media="(min-width: 768px)" srcset="{{ asset('assets/template/homepage-banner/homepage_tablet.jpg') }}">#}
-{#                    <source media="(min-width: 576px)" srcset="{{ asset('assets/template/homepage-banner/homepage_mobile.jpg') }}">#}
-{#                    <source media="(max-width: 575px)" srcset="{{ asset('assets/template/homepage-banner/homepage_mobile.jpg') }}">#}
-{#                    <img src="{{ asset('assets/template/homepage-banner/2021_MTLN_024_A_009_058.jpg') }}" class="img-fluid" alt="" loading="lazy">#}
-{#                </picture>#}
+
                 <picture>
-                    <source media="(min-width: 1440px)" srcset="{{ asset('assets/template/homepage-banner/tableau_emmelene-landon.jpg') }}">
+                    <source media="(min-width: 1440px)" srcset="{{ asset('assets/template/homepage-banner/homepage_desktop.jpg') }}">
                     <source media="(min-width: 992px)" srcset="{{ asset('assets/template/homepage-banner/homepage_desktop.jpg') }}">
                     <source media="(min-width: 768px)" srcset="{{ asset('assets/template/homepage-banner/homepage_tablet.jpg') }}">
                     <source media="(min-width: 576px)" srcset="{{ asset('assets/template/homepage-banner/homepage_mobile.jpg') }}">
                     <source media="(max-width: 575px)" srcset="{{ asset('assets/template/homepage-banner/homepage_mobile.jpg') }}">
-                    <img src="{{ asset('assets/template/homepage-banner/tableau_emmelene-landon.jpg') }}" class="img-fluid" alt="Crédit: Emmelene Landon" loading="lazy">
+                    <img src="{{ asset('assets/template/homepage-banner/homepage_desktop.jpg') }}" class="img-fluid" alt="Crédit: Emmelene Landon" loading="lazy">
                 </picture>
-                <img src="https://lucaslahaye.fr/marine/ancre_logo._460_square.png" id="ancre_logo" class="rounded-circle shadow-lg" alt="logo">
+                <img src="{{ asset('assets/template/ancre_logo._460_square.png') }}" id="ancre_logo" class="rounded-circle shadow-lg" alt="logo">
 
 
             </div>
@@ -84,14 +77,15 @@
                             </div>
                         </div>
                         <div class="col-lg-4 d-flex align-items-center gradient-custom-2">
+                            <a href="{{ path('app_ecrivains') }}" style="text-decoration: none; color: black;">
                             <div class="text-center text-dark px-3 py-4 p-md-5 mx-md-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-pencil mb-2" style="color: #5588A9;" viewBox="0 0 16 16">
                                     <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                                 </svg>
                                 <h4 class="mb-4 mt-2">Les Écrivains</h4>
                                 <p class="small mb-0">Retrouvez ici la liste des membres actuels ainsi que la section internationale du groupe.</p>
-
                             </div>
+                            </a>
                         </div>
                         <div class="col-lg-4 d-flex align-items-center gradient-custom-2">
                             <div class="text-center text-dark px-3 py-4 p-md-5 mx-md-4">

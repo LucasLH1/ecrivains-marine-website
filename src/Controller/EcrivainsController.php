@@ -4,14 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Ecrivains;
 use App\Form\EcrivainsFormType;
+use App\Form\ModifyEcrivainType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
-use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class EcrivainsController extends AbstractController
@@ -37,6 +36,8 @@ class EcrivainsController extends AbstractController
 
     public function manageEcrivainsList(ManagerRegistry $doctrine): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $ecrivains = $doctrine->getRepository(Ecrivains::class)->findAll();
 
         return $this->render('ecrivains/manageEcrivainsList.html.twig', [
@@ -61,6 +62,7 @@ class EcrivainsController extends AbstractController
             $ecrivain->setFirstname($form->get('firstname')->getData());
             $ecrivain->setDescription($form->get('description')->getData());
             $ecrivain->setAwards($form->get('awards')->getData());
+            $ecrivain->setDisplayFirst($form->get('displayFirst')->getData());
 
             $profilePicture = $form->get('profilePicture')->getData();
             if ($profilePicture) {
@@ -88,6 +90,38 @@ class EcrivainsController extends AbstractController
             'controller_name' => 'EcrivainsController',
             'ecrivain_form'=>$form->createView(),
             'ecrivains'=>$ecrivains
+        ]);
+    }
+
+    public function modifyEcrivain(Request $request, EntityManagerInterface $entityManager, ManagerRegistry $doctrine, SluggerInterface $slugger, int $id): Response
+    {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        $ecrivain = $doctrine->getRepository(Ecrivains::class)->find($id);
+
+        $form = $this->createForm(ModifyEcrivainType::class);
+        $form->get('name')->setData($ecrivain->getName());
+        $form->get('firstname')->setData($ecrivain->getFirstname());
+        $form->get('description')->setData($ecrivain->getDescription());
+        $form->get('awards')->setData($ecrivain->getAwards());
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $ecrivain->setName($form->get('name')->getData());
+            $ecrivain->setFirstname($form->get('firstname')->getData());
+            $ecrivain->setDescription($form->get('description')->getData());
+            $ecrivain->setAwards($form->get('awards')->getData());
+
+
+            $entityManager->persist($ecrivain);
+            $entityManager->flush();
+        }
+
+        return $this->render('ecrivains/modifyEcrivain.html.twig', [
+            'controller_name' => 'EcrivainsController',
+            'ecrivain_form'=>$form->createView(),
+            'ecrivain'=>$ecrivain
         ]);
     }
 

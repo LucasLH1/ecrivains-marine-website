@@ -1,10 +1,24 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Détail écrivain{% endblock %}
+
 {% block body %}
-    {{ ecrivain.description | raw}}
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-6 mb-4 text-center">
+                <img
+                            src="{{ asset('uploads/profilepictures_directory/' ~ ecrivain.profilePicture) }}"
+                            alt=""
+                            style="width: 150px; height: 150px"
+                            class="rounded-circle"
+                    />
+                <div class="text-lg-center">
+                    <h3 class="mt-4">{{ ecrivain.firstname }} {{ ecrivain.name }}</h3>
+                    <p class="mt-4">{{ ecrivain.description | raw}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
-{% block title %}
-
-{% endblock %}
 

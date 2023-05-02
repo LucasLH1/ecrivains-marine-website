@@ -7,6 +7,9 @@
 /public/bundles/
 /var/
 /vendor/
+/.idea
+/node_modules
+/.env.dev.local
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###

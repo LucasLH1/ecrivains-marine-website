@@ -19,7 +19,7 @@ class Ecrivains
     #[ORM\Column(type: 'string', length: 255)]
     private $firstname;
 
-    #[ORM\Column(type: 'text')]
+    #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -27,6 +27,9 @@ class Ecrivains
 
     #[ORM\Column(type: 'string', length: 255)]
     private $profilePicture;
+
+    #[ORM\Column(type: 'boolean')]
+    private $displayFirst;
 
     public function getId(): ?int
     {
@@ -62,7 +65,7 @@ class Ecrivains
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -92,4 +95,32 @@ class Ecrivains
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDisplayFirst()
+    {
+        return $this->displayFirst;
+    }
+
+    /**
+     * @param mixed $displayFirst
+     */
+    public function setDisplayFirst(?bool $displayFirst): void
+    {
+        $this->displayFirst = $displayFirst;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
+    public function isDisplayFirst(): ?bool
+    {
+        return $this->displayFirst;
+    }
+
+
 }

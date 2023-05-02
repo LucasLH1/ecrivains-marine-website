@@ -2,10 +2,21 @@ controllers:
     resource: ../src/Controller/
     type: attribute
 
+########################################################################################
+###########                        Front office                           ###########
+########################################################################################
+
 index:
     path: /
     controller: App\Controller\DefaultController::index
 
+test:
+    path: /test
+    controller: App\Controller\DefaultController::testPage
+
+app_association:
+    path: /association
+    controller: App\Controller\DefaultController::association
 app_ecrivains:
     path: /ecrivains
     controller: App\Controller\EcrivainsController::index
@@ -14,22 +25,6 @@ app_detailecrivain:
     path: /ecrivains/{id}
     controller: App\Controller\EcrivainsController::detailEcrivain
 
-app_addecrivain:
-    path: /addecrivains
-    controller: App\Controller\EcrivainsController::addEcrivain
-
-app_manageecrivainslist:
-    path: /mel
-    controller: App\Controller\EcrivainsController::manageEcrivainsList
-
-app_removeecrivain:
-    path: /removeecrivain/{id}
-    controller: App\Controller\EcrivainsController::removeEcrivain
-
-app_manage:
-    path: /manage
-    controller: App\Controller\ManageController::manage
-
 app_login:
     path: /login
     controller: App\Controller\SecurityController::login
@@ -37,3 +32,39 @@ app_login:
 app_logout:
     path: /logout
     controller: App\Controller\SecurityController::logout
+
+########################################################################################
+###########                        Back office                               ###########
+########################################################################################
+
+app_admininterface:
+    path: /admininterface
+    controller: App\Controller\ManageController::manage
+
+app_addecrivain:
+    path: /admininterface/addecrivain
+    controller: App\Controller\EcrivainsController::addEcrivain
+
+app_modifyecrivain:
+    path: /admininterface/modifyecrivain/{id}
+    controller: App\Controller\EcrivainsController::modifyEcrivain
+
+app_manageecrivainslist:
+    path: /admininterface/listecrivains
+    controller: App\Controller\EcrivainsController::manageEcrivainsList
+
+app_removeecrivain:
+    path: /admininterface/removeecrivain/{id}
+    controller: App\Controller\EcrivainsController::removeEcrivain
+
+app_userlist:
+    path: /admininterface/userlist
+    controller: App\Controller\ManageController::userList
+
+app_removeuser:
+    path: /admininterface/removeuser/{id}
+    controller: App\Controller\UserController::removeUser
+
+app_adduser:
+    path: /admininterface/adduser
+    controller: App\Controller\UserController::addUser
