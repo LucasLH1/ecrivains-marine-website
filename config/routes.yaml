@@ -17,6 +17,11 @@ test:
 app_association:
     path: /association
     controller: App\Controller\DefaultController::association
+
+app_mentions:
+    path: /mentions
+    controller: App\Controller\DefaultController::mentions
+
 app_ecrivains:
     path: /ecrivains
     controller: App\Controller\EcrivainsController::index

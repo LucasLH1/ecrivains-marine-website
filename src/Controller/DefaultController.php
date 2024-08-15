@@ -24,6 +24,13 @@ class DefaultController extends AbstractController
         ]);
     }
 
+    public function mentions( ): Response
+    {
+        return $this->render('default/mentions_legales.html.twig', [
+            'controller_name' => 'DefaultController'
+        ]);
+    }
+
     public function testPage(ManagerRegistry $doctrine): Response
     {
 
